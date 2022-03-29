@@ -6,32 +6,42 @@ class Movies extends Component{
         movies: getMovies(),
     };
 
-    handleDelete = movies => {
-
+    handleDelete = (movie) => {
+        const movies = this.state.movies.filter(mv => mv._id !== movie._id);
+        this.setState({movies});
     };
 
     render() {
-        let i = 1;
-        return (<table className='table'>
-                <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Genre</th>
-                    <th>Stock</th>
-                    <th>Rate</th>
-                </tr>
-                </thead>
-                <tbody>
-                {this.state.movies.map(movie => (
-                    <tr key={i++}>
-                        <td>{movie.title}</td>
-                        <td>{movie.genre.name}</td>
-                        <td>{movie.numberInStock}</td>
-                        <td>{movie.dailyRentalRate}</td>
+        const {length: mvnumber} = this.state.movies;
+
+        if (mvnumber === 0) return <p>There is no movie in database!</p>
+        return (
+            <React.Fragment>
+                <p>Showing {mvnumber} movie(s) in the database:</p>
+                <table className='table'>
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Genre</th>
+                        <th>Stock</th>
+                        <th>Rate</th>
+                        <th />
                     </tr>
-                ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    {this.state.movies.map(movie => (
+                        <tr key={movie._id}>
+                            <td>{movie.title}</td>
+                            <td>{movie.genre.name}</td>
+                            <td>{movie.numberInStock}</td>
+                            <td>{movie.dailyRentalRate}</td>
+                            <td><button onClick={() => this.handleDelete(movie)} className="btn btn-danger btn-sm">Delete</button></td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </React.Fragment>
+
         );
     }
 }
