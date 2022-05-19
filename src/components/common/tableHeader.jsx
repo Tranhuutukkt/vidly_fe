@@ -17,8 +17,11 @@ class TableHeader extends Component{
     renderSortIcon = column => {
         const {sortColumn} = this.props;
         if (column.path !== sortColumn.path) return null;
-        if (sortColumn.order === 'asc') return <FontAwesomeIcon icon={Icon.faArrowUp} />
-        return <FontAwesomeIcon icon={Icon.faArrowDown} />
+        if (sortColumn.path !== undefined){
+            if (sortColumn.order === 'asc') return <FontAwesomeIcon icon={Icon.faArrowUp} />
+            return <FontAwesomeIcon icon={Icon.faArrowDown} />
+        }
+
     }
 
     render() {

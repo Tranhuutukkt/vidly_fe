@@ -99,11 +99,11 @@ export function getMovies() {
   return movies;
 }
 
-export async function getMovie(id) {
+export function getMovie(id) {
   return movies.find(m => m._id === id);
 }
 
-export async function saveMovie(movie) {
+export function saveMovie(movie) {
   let movieInDb = movies.find(m => m._id === movie._id) || {};
   movieInDb.title = movie.title;
   movieInDb.genre = genresAPI.genres.find(g => g._id === movie.genreId);

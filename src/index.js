@@ -8,9 +8,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 
 ReactDOM.render(
-      <BrowserRouter>
-          <App />
-      </BrowserRouter>,
+    <React.StrictMode>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </React.StrictMode>,
   document.getElementById('root')
 );
 
