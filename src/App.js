@@ -1,20 +1,24 @@
 //import logo from './logo.svg';
-import './App.css';
-import Movies from "./components/movie";
+
+import React, {Component} from "react";
 import {Redirect, Route, Switch} from "react-router-dom";
+import {ToastContainer} from 'react-toastify';
+import Movies from "./components/movie";
 import Customers from "./components/customers";
 import Rentals from "./components/rentals";
 import NotFound from "./components/notFound";
-import React, {Component} from "react";
 import NavBar from "./components/navBar";
 import MovieForm from "./components/movieForm";
 import LoginForm from "./components/loginForm";
 import RegisterForm from "./components/registerForm";
+import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
 
 class App extends Component{
     render() {
         return (
             <React.Fragment>
+                <ToastContainer/>
                 <NavBar />
                 <main className="container">
                     <Switch>

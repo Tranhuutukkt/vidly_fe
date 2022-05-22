@@ -5,7 +5,7 @@ const Select = ({name, label, options, error, ...rest}) => {
         <div className='mb-3'>
             <label htmlFor={name}> {label}</label>
             <select name={name} id={name} {...rest} className='form-control'>
-                <option value=''>Choose a genre</option>
+                <option value="">Choose a genre</option>
                 {options.map(option => (
                     <option key={option._id} value={option._id}>
                         {option.name}
