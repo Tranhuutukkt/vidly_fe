@@ -88,7 +88,21 @@ class Movies extends Component{
         const {pageSize, currentPage, sortColumn, searchQuery} = this.state;
         const {user} = this.props;
 
-        if (mvnumber === 0) return <p>There is no movie in database!</p>
+        if (mvnumber === 0)
+        return (
+        <div>
+            <p>There is no movie in database!</p>
+            {user &&
+                <Link
+                    to='/movies/new'
+                    className='btn btn-primary btn-sm'
+                    style={{marginBottom: 20}}
+                >
+                    New Movies
+                </Link>
+            }
+        </div>
+        )
         const {totalCount, data} = this.getPageData();
 
         return (
